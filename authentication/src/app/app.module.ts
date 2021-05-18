@@ -3,22 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './structure/login/login.component';
-import { TopBarComponent } from './structure/top-bar/top-bar.component';
 import { HomeComponent } from './structure/home/home.component';
+import { TopBarComponent } from './structure/top-bar/top-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    TopBarComponent,
-    HomeComponent
+    HomeComponent,
+    TopBarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
