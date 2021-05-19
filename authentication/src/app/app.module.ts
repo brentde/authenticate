@@ -1,3 +1,4 @@
+import {MatInputModule} from '@angular/material/input';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -6,6 +7,8 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './structure/login/login.component';
 import { HomeComponent } from './structure/home/home.component';
 import { TopBarComponent } from './structure/top-bar/top-bar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +19,9 @@ import { TopBarComponent } from './structure/top-bar/top-bar.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatInputModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
