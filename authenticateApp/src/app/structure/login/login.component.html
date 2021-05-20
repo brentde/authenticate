@@ -1,1 +1,26 @@
-This is the login component
+<div class="w-100 h-100">
+  <div class="main-div">
+    <mat-form-field class="w-100" apperance="fill">
+      <mat-label>Username</mat-label>
+      <input
+        placeholder="Please enter your username..."
+        #userName
+        matInput>
+    </mat-form-field>
+
+    <mat-form-field class="w-100" apperance="fill">
+      <mat-label>Password</mat-label>
+      <input
+        placeholder="Please enter your password..."
+        #password
+        matInput
+        [type]="hide ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{  hide ? 'visibility_off' : 'visibility'  }}</mat-icon>
+    </button>
+    </mat-form-field>
+
+    <button mat-raised-button class="float-right">Clear</button>
+    <button mat-raised-button class="float-right mr-10">Login</button>
+  </div>
+</div>

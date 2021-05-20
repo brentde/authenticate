@@ -1,0 +1,16 @@
+mat-toolbar {
+  box-shadow: 0px 3px 5px #888888;
+}
+
+p {
+  font-size: 18px;
+}
+
+p:hover {
+  color: lightgray;
+  cursor: pointer;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
