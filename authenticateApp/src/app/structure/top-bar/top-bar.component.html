@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-    <p class="float-left mb-0">LogMeIn</p>
+    <a routerLink="/login">LogMeIn</a>
     <span class="spacer"></span>
-    <p class="float-right mb-0">LogMeOut</p>
+    <p (click)="logout()">LogMeOut</p>
 </mat-toolbar>
