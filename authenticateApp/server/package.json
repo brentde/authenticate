@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "authserver",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,12 +8,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Brent Deaver",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
     "http": "0.0.1-security",
     "http-server": "^0.12.3",
+    "mongoose": "^5.12.10",
     "nodemon": "^2.0.7"
   }
 }
