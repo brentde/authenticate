@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatModule } from './modules/mat/mat.module';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './structure/login/login.component';
@@ -20,7 +21,8 @@ import { TopBarComponent } from './structure/top-bar/top-bar.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatModule
+    MatModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
