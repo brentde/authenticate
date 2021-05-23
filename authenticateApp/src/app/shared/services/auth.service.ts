@@ -6,13 +6,18 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) {
-    this.testRoute();
-   }
+  constructor(private http: HttpClient) {}
 
-  private testRoute(): void{
-    this.http.get('/api/config').subscribe(config => {
-      console.log(config);
-    });
+  public login(username: string, password: string): void {
+    this.http.get('/api/auth/login', {
+      params: {
+        username: username,
+        password: password
+      }
+    }).subscribe(response => {
+      console.log(response);
+    }, error => {
+      console.log(error);
+    })
   }
 }
