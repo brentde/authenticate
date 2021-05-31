@@ -15,3 +15,21 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .float-right {
   float: right;
 }
+
+.main-div {
+  position: fixed;
+  left: 35%;
+  top: 30%;
+  text-align: center;
+  width: 30%;
+}
+
+button {
+  background-color: #69F0AE !important;
+  color: white !important;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+

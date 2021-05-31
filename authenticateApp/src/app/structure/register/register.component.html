@@ -1,0 +1,29 @@
+<div class="w-25 h-100">
+  <div class="main-div">
+    <mat-form-field class="w-100" apperance="fill">
+      <mat-label>Username</mat-label>
+      <input
+        placeholder="Please enter your username..."
+        [formControl]="form.get('username')"
+        [value]="form.get('username')?.value"
+        matInput>
+        <mat-error *ngIf="form.get('username')?.hasError('invalid')">This username is taken</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="w-100" apperance="fill">
+      <mat-label>Password</mat-label>
+      <input
+        placeholder="Please enter your password..."
+        [formControl]="form.get('password')"
+        [value]="form.get('password')?.value"
+        matInput
+        [type]="hide ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{  hide ? 'visibility_off' : 'visibility'  }}</mat-icon>
+    </button>
+    <mat-error *ngIf="form.get('password')?.hasError('invalid')">The password is invalid</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button (click)="register()" class="float-right w-100">Register</button>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+{
+  "mongoURI": "mongodb://brentde:Aresthatboi2%40@localhost:27017",
+  "dbName": "Auth",
+  "userCollection": "User",
+  "key": "AresIsTheNumber1Boy"
+}
+
+

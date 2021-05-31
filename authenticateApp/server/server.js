@@ -2,13 +2,14 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const mongo = require('./mongo/mongo');
-const authRoutes = require('./auth/index')
+const userRoutes = require('./user/index')
+const PORT = 8080;
+
 const config = {
   appName: "Authenticate Me",
   creationDate: "May 20th, 2021",
   author: "Brent Deaver"
 }
-const PORT = 8080;
 
 /* Allows the parsing of incoming JSON requests */
 app.use(express.json());
@@ -19,8 +20,8 @@ app.use(express.urlencoded());
 /* Serve statis files obtained through the build */
 app.use('/', express.static('../dist/authenticateApp'));
 
-/* User auth routes */
-app.use('/api/auth', authRoutes);
+/* User routes */
+app.use('/api/user', userRoutes);
 
 /* APIs */
 app.get('/api/config', (req, res) => {
@@ -36,4 +37,17 @@ app.get('*', (req, res) => {
 app.listen(PORT, (req, res) => {
   console.log("The app is listening on port: ", PORT);
   mongo.connect();
+});
+
+/* Disconnect MongoDB on exit */
+process.on('SIGINT', () => {
+  mongo.disconnect();
+});
+
+process.on('SIGTERM', () => {
+  mongo.disconnect();
+});
+
+process.on('exit', () => {
+  mongo.disconnect();
 });

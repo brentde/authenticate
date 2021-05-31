@@ -1,3 +1,5 @@
+import { AuthService } from './../../shared/services/auth/auth.service';
+import { UserService } from './../../shared/services/user/user.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public userService: UserService,
+              private authService: AuthService) { }
 
   ngOnInit(): void {}
 
-  public logout(): void {}
+  public logout(): void {
+    this.authService.logout();
+  }
 }

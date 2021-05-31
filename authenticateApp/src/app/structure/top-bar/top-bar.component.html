@@ -1,5 +1,6 @@
 <mat-toolbar color="primary">
-    <a routerLink="/login">LogMeIn</a>
     <span class="spacer"></span>
-    <p (click)="logout()">LogMeOut</p>
+    <a *ngIf="!userService.loggedIn" class="mr-10" routerLink="/login">Login</a>
+    <a *ngIf="!userService.loggedIn" routerLink="/register">Register</a>
+    <p *ngIf="userService.loggedIn" (click)="logout()">Logout</p>
 </mat-toolbar>

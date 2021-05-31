@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const config = require('../shared/config.json')
+const config = require('../config.json')
 
 /* Connect to MongoDb using Mongoose - make sure to set the auth source
   - UseUnifiedTopology states that one when connection is terminated, all connections will be terminated

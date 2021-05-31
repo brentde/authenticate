@@ -45,4 +45,4 @@ testem.log
 Thumbs.db
 
 # Config
-/server/shared/config.json
+/server/config.json
