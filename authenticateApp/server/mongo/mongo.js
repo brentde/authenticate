@@ -7,7 +7,7 @@ const config = require('../config.json')
 */
 
 exports.connect = () => {
-  mongoose.connect(`${config.mongoURI}/Auth?authSource=admin`, {useNewUrlParser: true, useUnifiedTopology: true}, (err, db) => {
+  mongoose.connect(`${config.mongoURI}`, {useNewUrlParser: true, useUnifiedTopology: true}, (err, db) => {
 
     if(db)
       console.log("***MONGO CONNECTED***");
@@ -18,12 +18,12 @@ exports.connect = () => {
   });
 }
 
-/* Disconnect from mongoDB */
-exports.disconnect = () => {
-  mongoose.disconnect().then(success => {
-    console.log("***MONGO DISCONNECTED***");
-  })
-  .catch(err => {
-    console.log("There was a problem disconnecting: ", err);
+exports.cleanup = () => {
+  mongoose.disconnect().then(() => {
+    console.log("\n***MONGO DISCONNECTED***");
+    process.exit();
+  }, err => {
+   console.log("There was an error disconnecting from MongoDB.", err);
+   process.exit();
   })
 }

@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
 
     if(username && password){
       this.authService.register(username, password).then(response => {
-        this.snackbar.open('Registration Successful');
+        this.snackbar.open('Registration Successful', undefined, {duration: 5000});
         this.router.navigate(['/login']);
       }, error => {
         this.setError(error.field, 'invalid');

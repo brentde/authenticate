@@ -1,11 +1,16 @@
 import { Injectable } from '@angular/core';
+import { HttpClient  } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  public loggedIn = false;
+  
+  constructor(private http: HttpClient) {}
 
-  constructor() {}
+  public getBoyImage(): Observable<any> {
+    return this.http.get<any>('/api/boi', { responseType: 'blob' as 'json'});
+  } 
 
 }

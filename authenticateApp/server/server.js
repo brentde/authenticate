@@ -2,14 +2,8 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const mongo = require('./mongo/mongo');
-const userRoutes = require('./user/index')
+const userModule = require('./user/index')
 const PORT = 8080;
-
-const config = {
-  appName: "Authenticate Me",
-  creationDate: "May 20th, 2021",
-  author: "Brent Deaver"
-}
 
 /* Allows the parsing of incoming JSON requests */
 app.use(express.json());
@@ -21,11 +15,11 @@ app.use(express.urlencoded());
 app.use('/', express.static('../dist/authenticateApp'));
 
 /* User routes */
-app.use('/api/user', userRoutes);
+app.use('/api/user', userModule.authRoutes);
 
-/* APIs */
-app.get('/api/config', (req, res) => {
-  res.send(config);
+/* Check auth and get image of boy */
+app.get('/api/boi', userModule.auth, (req, res) => {
+  res.status(200).sendFile(path.resolve('./shared/img/boi.jpeg'));
 })
 
 /* Fall through route - All Angular routes go through the app */
@@ -39,15 +33,5 @@ app.listen(PORT, (req, res) => {
   mongo.connect();
 });
 
-/* Disconnect MongoDB on exit */
-process.on('SIGINT', () => {
-  mongo.disconnect();
-});
-
-process.on('SIGTERM', () => {
-  mongo.disconnect();
-});
-
-process.on('exit', () => {
-  mongo.disconnect();
-});
+process.on('SIGINT', mongo.cleanup);
+process.on('SIGTERM', mongo.cleanup);
